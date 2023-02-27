@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 const Pokemon = ({ data }) => {
   const router = useRouter()
-  console.log(router);
+  console.log(data);
 
   if(router.isFallback){
     return <p>Cargando...</p>
@@ -14,7 +14,7 @@ const Pokemon = ({ data }) => {
   return( 
     <div>
       <h1>{data.name} número #{data.id}</h1>
-      <Image src={data.sprites.front_default} width={400} height={400} alt={data.name} />
+      <Image src={data.sprites.other["official-artwork"].front_default} width={400} height={400} alt={data.name} />
       <Link href="/">Volver</Link>
     </div>
   );
