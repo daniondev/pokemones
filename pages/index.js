@@ -1,16 +1,22 @@
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
 
 const Pokemon = ({ pokemon }) => {
-  const id = pokemon.url.split('/').filter(x => x).pop()
-  return <li><Link href={`pokemones/${id}`}>{pokemon.name}</Link></li>;
+  const id = pokemon.url
+    .split("/")
+    .filter((x) => x)
+    .pop();
+  return (
+    <li>
+      <Link href={`/pokemones/${id}`}>{pokemon.name}</Link>
+    </li>
+  );
 };
 
 export default function Pokemones({ pokemones }) {
-  console.log(pokemones);
   return (
     <div>
-      <p>Pokemones</p>
+      <p data-testid="titulo">PokeCheat</p>
       <ul>
         {pokemones.map((pokemon) => (
           <Pokemon pokemon={pokemon} key={pokemon.name} />
